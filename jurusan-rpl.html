@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rekayasa Perangkat Lunak - SMK IT Al Hidayah</title>
+  <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Custom Styling untuk Halaman Jurusan RPL */
+    :root {
+      --primary-color: #0d6efd;
+      --primary-dark: #0a58ca;
+      --secondary-color: #0dcaf0;
+      --bg-light: #f8f9fa;
+      --card-bg: #ffffff;
+      --text-color: #212529;
+      --text-muted: #6c757d;
+      --border-radius: 16px;
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .rpl-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    /* Hero Banner */
+    .rpl-hero {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: #ffffff;
+      padding: 3rem 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rpl-hero::before {
+      content: "{ }";
+      position: absolute;
+      right: -20px;
+      bottom: -30px;
+      font-size: 15rem;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.03);
+      font-family: monospace;
+      pointer-events: none;
+    }
+
+    .badge-jurusan {
+      display: inline-block;
+      background: rgba(13, 110, 253, 0.2);
+      color: var(--secondary-color);
+      border: 1px solid var(--secondary-color);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .rpl-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .rpl-hero p {
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      max-width: 800px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Grid Ringkasan / Quick Stats */
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .stat-icon {
+      font-size: 2.2rem;
+      background: #eef2ff;
+      padding: 0.8rem;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stat-info h4 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: var(--text-color);
+    }
+
+    .stat-info p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Content Card General */
+    .content-section {
+      background: var(--card-bg);
+      padding: 2.5rem 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      color: var(--text-color);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--bg-light);
+      padding-bottom: 0.75rem;
+    }
+
+    .text-description {
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    /* Skills Grid Cards */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--bg-light);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid var(--primary-color);
+      transition: all 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      background: #ffffff;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .skill-card h4 {
+      margin: 0 0 0.5rem 0;
+      color: var(--text-color);
+      font-size: 1.05rem;
+    }
+
+    .skill-card p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Career Badges Layout */
+    .career-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .career-badge {
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s ease;
+    }
+
+    .career-badge:hover {
+      background: #bae6fd;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .rpl-hero {
+        padding: 2rem 1.25rem;
+      }
+      .content-section {
+        padding: 1.5rem 1.25rem;
+      }
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">🏫 SMK IT Al Hidayah</div>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Beranda</a></li>
+        <li class="dropdown">
+          <a href="#">Profil ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="profil.html">Visi, Misi & Tujuan</a></li>
+            <li><a href="sambutan.html">Sambutan Kepsek</a></li>
+            <li><a href="fasilitas.html">Fasilitas Sekolah</a></li>
+            <li><a href="struktur-organisasi.html">Struktur Organisasi</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="active">Jurusan ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="jurusan-rpl.html">Pengembangan Perangkat Lunak dan Gim</a></li>
+            <li><a href="jurusan-dkv.html">Desain Komunikasi Visual</a></li>
+          </ul>
+        </li>
+        <li><a href="kontak.html">Kontak</a></li>
+        <li><button id="themeToggle" class="theme-btn">🌙</button></li>
+        <li><a href="spmb.html" class="btn-cta">SPMB</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="section-padding">
+    <div class="rpl-container">
+      
+      <!-- Banner Hero -->
+      <section class="rpl-hero">
+        <span class="badge-jurusan">KOMPETENSI KEAHLIAN</span>
+        <h1>💻 Pengembangan Perangkat Lunak & Gim (RPL)</h1>
+        <p>Mencetak Software Engineer, Web Developer, dan Mobile App Creator yang profesional, inovatif, serta siap bersaing di industri teknologi global.</p>
+      </section>
+
+      <!-- Tentang Jurusan -->
+      <section class="content-section">
+        <h3 class="section-title">📖 Tentang Kompetensi Keahlian</h3>
+        <p class="text-description">
+          <strong>Rekayasa Perangkat Lunak (RPL)</strong> merupakan salah satu jurusan komputasi yang sangat diminati di era transformasi digital saat ini. Siswa tidak hanya diajarkan cara menulis baris kode pemrograman (coding), melainkan juga diajarkan bagaimana mendesain arsitektur aplikasi, menganalisis kebutuhan pengguna, serta mengelola proyek pembuatan perangkat lunak berstandar industri.
+          <br><br>
+          Dengan pendekatan pembelajaran berbasis produk (<em>Product-Based Learning</em>) dan <em>Teaching Factory</em>, lulusan diarahkan untuk memiliki portofolio nyata dan siap bekerja di perusahaan teknologi maupun menjadi <em>techpreneur</em>.
+        </p>
+      </section>
+
+      <!-- Kompetensi Inti -->
+      <section class="content-section">
+        <h3 class="section-title">🎯 Kompetensi Inti yang Dipelajari</h3>
+        <div class="skills-grid">
+          
+          <div class="skill-card">
+            <h4>🌐 Pemrograman Web</h4>
+            <p>Pengembangan frontend & backend menggunakan HTML, CSS, JavaScript, serta Framework modern seperti React/Vue dan Laravel.</p>
+          </div>
+
+          <div class="skill-card">
+            <h4>📱 Mobile App Development</h4>
+            <p>Pembuatan aplikasi berbasis Android dan iOS menggunakan pemrograman berbasis objek dan framework lintas platform.</p>
+          </div>
+
+          <div class="skill-card">
+            <h4>🗄️ Basis Data & Cloud</h4>
+            <p>Perancangan struktur data (SQL/NoSQL), manajemen database, serta pengenalan infrastruktur cloud dasar.</p>
+          </div>
+
+          <div class="skill-card">
+            <h4>🎨 UI/UX Design Fundamentals</h4>
+            <p>Prinsip perancangan antarmuka aplikasi yang intuitif, ramah pengguna, dan estetik menggunakan tools industri.</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Peluang Karir -->
+      <section class="content-section">
+        <h3 class="section-title">💼 Peluang Karir Lulusan</h3>
+        <p class="text-description" style="margin-bottom: 1rem;">
+          Lulusan jurusan RPL memiliki cakupan prospek kerja yang sangat luas di industri teknologi:
+        </p>
+        <div class="career-wrapper">
+          <span class="career-badge">👨‍💻 Web Developer</span>
+          <span class="career-badge">📲 Android/iOS Developer</span>
+          <span class="career-badge">🗃️ Database Administrator</span>
+          <span class="career-badge">🧪 Quality Assurance (QA)</span>
+          <span class="career-badge">🎨 UI/UX Designer</span>
+          <span class="career-badge">🚀 Tech Entrepreneur</span>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>SMK IT Al Hidayah</h4>
+        <p class="text-muted">Menciptakan Lulusan Siap Kerja, Berkarakter, dan Berdaya Saing Global.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak Kami</h4>
+        <p class="text-muted">📍 Durian Hutan, Nagari Aia Gadang - Jl.Simpang Empat - Ujung Gading KM II, Kecamatan Pasaman Kabupaten Pasaman Barat Provinsi Sumatera Barat.</p>
+        <p class="text-muted">📞 +62 813 7437 9317</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="text-muted">&copy; 2026 (AK) SMK IT Al Hidayah. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

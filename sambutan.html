@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sambutan Kepala Sekolah - SMK IT AL HIDAYAH</title>
+  <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Styling khusus layout kartu sambutan agar responsif dan rata tengah */
+    .kepsek-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .img-kepsek-wrapper {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .img-kepsek {
+      width: 100%;
+      max-width: 250px; /* Ukuran maksimal foto */
+      height: auto;
+      aspect-ratio: 1 / 1; /* Menjaga rasio lingkaran tetap presisi */
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    /* Penyesuaian teks agar tetap rapi saat di posisi tengah */
+    .kepsek-content {
+      width: 100%;
+    }
+
+    /* Media query untuk layar desktop (opsional: jika ingin teks rata kiri di layar besar) */
+    @media (min-width: 768px) {
+      .kepsek-content {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">🏫 SMK IT AL HIDAYAH</div>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Beranda</a></li>
+        <li class="dropdown">
+          <a href="#" class="active">Profil ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="profil.html">Sejarah, Visi, Misi & Tujuan</a></li>
+            <li><a href="sambutan.html">Sambutan Kepsek</a></li>
+            <li><a href="fasilitas.html">Fasilitas Sekolah</a></li>
+            <li><a href="struktur-organisasi.html">Struktur Organisasi</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Jurusan ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="jurusan-rpl.html">Pengembangan Perangkat Lunak dan Gim/Rekayasa Perangkat Lunak</a></li>
+            <li><a href="jurusan-dkv.html">Desain Komunikasi Visual</a></li>
+          </ul>
+        </li>
+        <li><a href="kontak.html">Kontak</a></li>
+        <li><button id="themeToggle" class="theme-btn">🌙</button></li>
+        <li><a href="spmb.html" class="btn-cta">SPMB Online</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- BANNER RUNNING TEXT LED -->
+  <div class="led-banner">
+    <div class="led-wrapper">
+      <span class="led-text">
+        📢 PENGUMUMAN SPMB SMK IT AL HIDAYAH 2026/2027: Penerimaan Peserta Didik Baru Gelombang II telah dibuka! Bagi calon siswa Jurusan Pengembangan Perangkat Lunak dan Gim/Rekayasa Perangkat Lunak (RPL) & Desain Komunikasi Visual (DKV) segera daftarkan diri Anda sebelum 30 Agustus 2026. 🚀
+      </span>
+    </div>
+  </div>
+
+  <main class="section-padding">
+    <h2>Sambutan Kepala Sekolah</h2>
+    <br>
+    
+    <!-- Container Kartu Sambutan Rata Tengah & Responsif -->
+    <div class="card kepsek-card">
+      <div class="img-kepsek-wrapper">
+        <img 
+          src="assets/img/foto-kepsek.png" 
+          alt="Foto Kepala Sekolah" 
+          class="img-kepsek"
+        >
+      </div>
+      <div class="kepsek-content">
+        <h3>Sardin, S.Pd.I.,Gr.</h3>
+        <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 1rem;">Kepala Sekolah SMK IT AL HIDAYAH</p>
+        <p class="text-muted" style="margin-bottom: 1rem;">
+          Assalamu'alaikum Warahmatullahi Wabarakatuh. Alhamdulillahirabbil 'alamin, puji syukur ke hadirat Allah Swt. 
+          atas rahmat dan karunia-Nya sehingga website resmi sekolah ini dapat hadir sebagai media informasi, komunikasi, dan silaturahmi bagi seluruh warga sekolah dan masyarakat.
+        </p>
+        <p class="text-muted">
+          Berlandaskan filosofi Minangkabau, 
+          <b>"Alam takambang jadi guru,"</b> kami berkomitmen untuk menghadirkan pendidikan yang bermutu, 
+          membentuk peserta didik yang beriman, berkarakter, berprestasi, serta memiliki kompetensi yang siap menghadapi perkembangan ilmu pengetahuan, teknologi, dan dunia kerja.
+        </p>
+        <p class="text-muted" style="margin-top: 1rem;">
+         <b>"Saiyo sakato, ringan samo dijinjiang, barek samo dipikua,"</b> 
+         karena dengan kebersamaan, segala cita-cita akan lebih mudah diwujudkan. 
+         Kami percaya bahwa kemajuan sekolah hanya dapat diwujudkan melalui sinergi antara sekolah, orang tua, alumni, dunia usaha dan industri, serta masyarakat.
+        </p>
+        <p class="text-muted" style="margin-top: 1rem;">
+         Terima kasih atas kepercayaan dan dukungan yang diberikan. Semoga Allah Swt. senantiasa memberikan keberkahan dan kemudahan dalam setiap langkah kita. Wassalamu'alaikum Warahmatullahi Wabarakatuh.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>SMK IT AL HIDAYAH</h4>
+        <p class="text-muted">Menciptakan Lulusan Siap Kerja, Berkarakter, dan Berdaya Saing Global.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak Kami</h4>
+        <p class="text-muted">📍 Durian Hutan, Nagari Aia Gadang - Jl.Simpang Empat - Ujung Gading KM II, Kecamatan Pasaman Kabupaten Pasaman Barat Provinsi Sumatera Barat</p>
+        <p class="text-muted">📞 +62 813 7437 9317</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="text-muted">&copy; 2026 (AK) SMK IT AL HIDAYAH. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendaftaran SPMB Online - SMK IT AL HIDAYAH</title>
+  <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+  <style>
+    /* ==========================================
+       1. VARIABLES & THEMES (LIGHT & DARK)
+       ========================================== */
+    :root {
+      /* Tema Terang (Default) */
+      --bg-color: #f4f6f9;
+      --card-bg: #ffffff;
+      --text-color: #2c3e50;
+      --text-muted: #666666;
+      --border-color: #e2e8f0;
+      --primary-color: #1a5276;
+      --primary-hover: #143e59;
+      --accent-color: #f39c12;
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      --input-bg: #ffffff;
+      --info-box-bg: #f8fafc;
+      --radius: 12px;
+    }
+
+    /* Dark Mode Class */
+    body.dark-mode {
+      --bg-color: #12181f;
+      --card-bg: #1e293b;
+      --text-color: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+      --primary-color: #38bdf8;
+      --primary-hover: #0284c7;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      --input-bg: #0f172a;
+      --info-box-bg: #0f172a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ==========================================
+       2. HEADER & NAVBAR (RESPONSIF)
+       ========================================== */
+    header {
+      background-color: var(--card-bg);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary-color);
+    }
+
+    .btn-cta {
+      background-color: var(--primary-color);
+      color: #ffffff !important;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      display: inline-block;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+
+    body.dark-mode .btn-cta {
+      color: #0f172a !important;
+    }
+
+    .btn-cta:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .theme-btn {
+      background: none;
+      border: 1px solid var(--border-color);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Dropdown Navigation */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--card-bg);
+      min-width: 240px;
+      box-shadow: var(--shadow);
+      list-style: none;
+      border-radius: 6px;
+      overflow: hidden;
+      z-index: 100;
+      border: 1px solid var(--border-color);
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 12px 16px;
+      font-size: 0.9rem;
+    }
+
+    .dropdown-menu li a:hover {
+      background-color: var(--border-color);
+    }
+
+    /* Hamburger Menu Icon */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: var(--text-color);
+      border-radius: 2px;
+    }
+
+    /* ==========================================
+       3. MAIN CONTENT & INFORMASI
+       ========================================== */
+    .section-padding {
+      padding: 40px 20px;
+      flex: 1;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 35px 30px;
+      max-width: 750px;
+      margin: 0 auto;
+      border: 1px solid var(--border-color);
+    }
+
+    .info-header {
+      text-align: center;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 20px;
+      margin-bottom: 25px;
+    }
+
+    .info-header h2 {
+      color: var(--primary-color);
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .info-section {
+      margin-bottom: 25px;
+    }
+
+    .info-section h3 {
+      color: var(--primary-color);
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-list {
+      list-style: none;
+      padding-left: 5px;
+    }
+
+    .info-list li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      color: var(--text-color);
+    }
+
+    .info-list li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #22c55e;
+      font-weight: bold;
+    }
+
+    .contact-box {
+      background-color: var(--info-box-bg);
+      border-left: 4px solid var(--accent-color);
+      padding: 15px 20px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 25px;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .contact-box p {
+      font-size: 0.95rem;
+      color: var(--text-color);
+      margin-bottom: 5px;
+    }
+
+    .contact-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .action-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    /* ==========================================
+       4. FOOTER
+       ========================================== */
+    footer {
+      background-color: #0f172a;
+      color: #ffffff;
+      padding: 40px 20px 20px 20px;
+      margin-top: auto;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .footer-col h4 {
+      color: var(--accent-color);
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .footer-text {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #334155;
+      padding-top: 20px;
+    }
+
+    /* ==========================================
+       5. RESPONSIVE DESIGN (MEDIA QUERIES)
+       ========================================== */
+    @media screen and (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: var(--card-bg);
+        box-shadow: var(--shadow);
+        padding: 20px;
+        gap: 15px;
+        align-items: stretch;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .dropdown {
+        width: 100%;
+      }
+
+      .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background-color: var(--bg-color);
+        width: 100%;
+        margin-top: 5px;
+      }
+
+      .card {
+        padding: 25px 20px;
+      }
+
+      .info-header h2 {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .section-padding {
+        padding: 20px 12px;
+      }
+
+      .card {
+        padding: 20px 15px;
+      }
+
+      .btn-cta {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER / NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">🏫 SMK IT AL HIDAYAH</div>
+      <div class="hamburger" id="hamburger" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Beranda</a></li>
+        <li class="dropdown">
+          <a href="#">Profil ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="profil.html">Visi, Misi & Tujuan</a></li>
+            <li><a href="sambutan.html">Sambutan Kepsek</a></li>
+            <li><a href="fasilitas.html">Fasilitas Sekolah</a></li>
+            <li><a href="struktur-organisasi.html">Struktur Organisasi</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Jurusan ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="jurusan-rpl.html">Pengembangan Perangkat Lunak dan Gim</a></li>
+            <li><a href="jurusan-dkv.html">Desain Komunikasi Visual</a></li>
+          </ul>
+        </li>
+        <li><a href="kontak.html">Kontak</a></li>
+        <li><button id="themeToggle" class="theme-btn" title="Ubah Tema">🌙</button></li>
+        <li><a href="spmb.html" class="btn-cta active">SPMB Online</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- INFORMASI SPMB ONLINE -->
+  <main class="section-padding">
+    <div class="card">
+      
+      <div class="info-header">
+        <h2>Penerimaan Murid Baru Online 2026/2027</h2>
+        <p class="subtitle">Selamat datang di Portal SPMB Online SMK IT AL HIDAYAH. Silakan baca panduan di bawah ini sebelum melanjutkan.</p>
+      </div>
+
+      <div class="info-section">
+        <h3>📋 Alur Pendaftaran Singkat</h3>
+        <ul class="info-list">
+          <li><strong>Langkah 1:</strong> Siapkan nomor NISN aktif dan data diri sesuai ijazah SMP/MTs.</li>
+          <li><strong>Langkah 2:</strong> Klik tombol pendaftaran di bawah ini untuk mengakses portal formulir.</li>
+          <li><strong>Langkah 3:</strong> Isi data pribadi, asal sekolah, serta jurusan pilihan (PPLG atau DKV).</li>
+          <li><strong>Langkah 4:</strong> Konfirmasi pendaftaran melalui WhatsApp ke panitia SPMB.</li>
+        </ul>
+      </div>
+
+      <div class="info-section">
+        <h3>💡 Informasi Penting</h3>
+        <ul class="info-list">
+          <li>Pastikan nomor WhatsApp yang Anda cantumkan aktif untuk penerimaan informasi pendaftaran.</li>
+          <li>Gunakan email aktif agar dapat menerima kartu peserta seleksi.</li>
+          <li>Proses verifikasi berkas memakan waktu 1-2 hari kerja setelah pendaftaran dikirim.</li>
+        </ul>
+      </div>
+
+      <div class="contact-box">
+        <p><strong>Butuh bantuan pendaftaran?</strong></p>
+        <p>Hubungi Panitia SPMB melalui WhatsApp di <strong>+62 813 7437 9317</strong> (Jam kerja: 08.00 - 15.00 WIB).</p>
+      </div>
+
+      <div class="action-container">
+        <button class="btn-cta" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfb_EnvOMMM5lxlIQcEvGihxIhqE4CTyZFUwG_azs4_E8jZFQ/viewform', '_blank')">Mulai Pendaftaran Sekarang</button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>SMK IT AL HIDAYAH</h4>
+        <p class="footer-text">Menciptakan Lulusan Siap Kerja, Berkarakter, dan Berdaya Saing Global.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak Kami</h4>
+        <p class="footer-text">📍 Durian Hutan, Nagari Aia Gadang - Jl.Simpang Empat - Ujung Gading KM II, Kecamatan Pasaman Kabupaten Pasaman Barat Provinsi Sumatera Barat.</p>
+        <p class="footer-text">📞 +62 813 7437 9317</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-text">&copy; 2026 (AK) SMK IT AL HIDAYAH. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT NAVIGASI MOBILE & DARK MODE -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // 1. Script Hamburger Menu (Mobile)
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function () {
+          navLinks.classList.toggle('active');
+        });
+      }
+
+      // 2. Script Switcher Dark / Light Mode
+      const themeToggleBtn = document.getElementById('themeToggle');
+      const body = document.body;
+
+      // Cek apakah user pernah menyimpan preferensi tema di browser
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        themeToggleBtn.textContent = '☀️';
+      }
+
+      themeToggleBtn.addEventListener('click', function () {
+        body.classList.toggle('dark-mode');
+
+        if (body.classList.contains('dark-mode')) {
+          themeToggleBtn.textContent = '☀️';
+          localStorage.setItem('theme', 'dark');
+        } else {
+          themeToggleBtn.textContent = '🌙';
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

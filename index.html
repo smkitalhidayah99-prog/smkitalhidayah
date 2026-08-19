@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beranda & Dashboard - SMK IT AL HIDAYAH</title>
+  <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .hero {
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      color: #ffffff;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; color: #ffffff; }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; color: #ffffff; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: -3rem;
+      position: relative;
+      z-index: 10;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .stat-card h3 { font-size: 1.8rem; color: var(--primary-color); }
+    .features-grid, .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">🏫 SMK IT AL HIDAYAH</div>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Beranda</a></li>
+        <li class="dropdown">
+          <a href="#">Profil ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="profil.html">Sejarah, Visi, Misi & Tujuan</a></li>
+            <li><a href="sambutan.html">Sambutan Kepsek</a></li>
+            <li><a href="fasilitas.html">Fasilitas Sekolah</a></li>
+            <li><a href="struktur-organisasi.html">Struktur Organisasi</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Jurusan ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="jurusan-rpl.html">Pengembangan Perangkat Lunak dan Gim</a></li>
+            <li><a href="jurusan-dkv.html">Desain Komunikasi Visual</a></li>
+          </ul>
+        </li>
+        <li><a href="kontak.html">Kontak</a></li>
+        <li><button id="themeToggle" class="theme-btn">🌙</button></li>
+        <li><a href="spmb.html" class="btn-cta">SPMB Online</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- BANNER RUNNING TEXT LED -->
+  <div class="led-banner">
+    <div class="led-wrapper">
+      <span class="led-text">
+        📢 PENGUMUMAN SPMB SMK IT AL HIDAYAH 2026/2027: Penerimaan Peserta Didik Baru Gelombang II telah dibuka! Bagi calon siswa Jurusan Pengembangan Perangkat Lunak dan Gim/Rekayasa Perangkat Lunak (RPL) & Desain Komunikasi Visual (DKV) segera daftarkan diri Anda sebelum 30 Agustus 2026. 🚀
+      </span>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <h1>Pendidikan Vokasi Digital</h1>
+      <h2>SMK IT AL HIDAYAH</h2>
+      <p>Akreditasi <strong>"A"</strong>(Unggul)</p>
+      <p>Menciptakan Lulusan Siap Kerja di Bidang Pengembangan Perangkat Lunak dan Gim/Rekayasa Perangkat Lunak serta Desain Komunikasi Visual.</p>
+      <a href="spmb.html" class="btn-cta" style="background-color: var(--accent-color);">Daftar SPMB Sekarang</a>
+    </section>
+
+    <div class="section-padding" style="padding-top: 0;">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span style="font-size: 2.5rem;">👨‍🎓</span>
+          <div><h3>100-+</h3><p class="text-muted">Siswa Aktif</p></div>
+        </div>
+        <div class="stat-card">
+          <span style="font-size: 2.5rem;">👩‍🏫</span>
+          <div><h3>19</h3><p class="text-muted">Guru & Staf</p></div>
+        </div>
+        <div class="stat-card">
+          <span style="font-size: 2.5rem;">🏢</span>
+          <div><h3>20-+</h3><p class="text-muted">Mitra Industri</p></div>
+        </div>
+        <div class="stat-card">
+          <span style="font-size: 2.5rem;">📈</span>
+          <div><h3>10%</h3><p class="text-muted">Penyerapan Kerja</p></div>
+        </div>
+      </div>
+    </div>  
+
+    <section class="section-padding" style="padding-top: 1rem;">
+      <h2 style="text-align: center; margin-bottom: 2rem;">Dashboard Informasi</h2>
+      <div class="dashboard-grid">
+        <div class="card">
+          <h3>📢 Pengumuman Terbaru</h3>
+          <ul style="margin-top: 1rem; list-style: none;">
+            <li style="padding: 0.8rem 0; border-bottom: 1px dashed var(--border-color);">
+              <small style="background: var(--accent-color); color: #fff; padding: 2px 6px; border-radius: 4px; font-weight: bold;">12 Ags 2026</small>
+              <p style="margin-top: 5px; font-weight: 600;">Pembukaan SPMB Gelombang II</p>
+              <p class="text-muted" style="font-size: 0.85rem;">Pendaftaran ditutup tanggal 30 Agustus 2026.</p>
+            </li>
+            <li style="padding: 0.8rem 0;">
+              <small style="background: var(--accent-color); color: #fff; padding: 2px 6px; border-radius: 4px; font-weight: bold;">05 Ags 2026</small>
+              <p style="margin-top: 5px; font-weight: 600;">Pelepasan Siswa/i SMK IT AL HIDAYAH Kelas XII</p>
+              <p class="text-muted" style="font-size: 0.85rem;">Tim SMK IT AL HIDAYAH.</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>📅 Agenda Mendatang</h3>
+          <ul style="margin-top: 1rem; list-style: none;">
+            <li style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+              <div style="background: var(--primary-color); color: white; padding: 0.5rem; border-radius: 8px; text-align: center; min-width: 55px;">
+                <strong style="font-size: 1.2rem; color: #fff;">--</strong><br><small style="color: #fff;">Desember</small>
+              </div>
+              <div>
+                <h4>Ujian & UKK DKV & RPL</h4>
+                <small class="text-muted">📍 LAB Komputer (07.30 WIB)</small>
+              </div>
+            </li>
+            <li style="display: flex; gap: 1rem; align-items: center;">
+              <div style="background: var(--primary-color); color: white; padding: 0.5rem; border-radius: 8px; text-align: center; min-width: 55px;">
+                <strong style="font-size: 1.2rem; color: #fff;">--</strong><br><small style="color: #fff;">Desember</small>
+              </div>
+              <div>
+                <h4>Workshop UI/UX Bersama Industri</h4>
+                <small class="text-muted">📍 Lab Komputer Utama (10.00 WIB)</small>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-padding" style="background: var(--bg-section);">
+      <h2 style="text-align: center; margin-bottom: 2rem;">Mengapa Memilih SMK IT AL HIDAYAH?</h2>
+      <div class="features-grid">
+        <div class="card" style="text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 0.5rem;">🖥️</div>
+          <h3>Kurikulum Industri</h3>
+          <p class="text-muted">Diselaraskan langsung dengan kebutuhan industri software house & creative agency.</p>
+        </div>
+        <div class="card" style="text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 0.5rem;">🚀</div>
+          <h3>Teaching Factory</h3>
+          <p class="text-muted">Siswa dilatih menggarap proyek riil dari klien selama masa pembelajaran.</p>
+        </div>
+        <div class="card" style="text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 0.5rem;">📜</div>
+          <h3>Sertifikat</h3>
+          <p class="text-muted">Lulusan dibekali sertifikat kompetensi.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>SMK IT AL HIDAYAH</h4>
+        <p class="text-muted">Menciptakan Lulusan Siap Kerja, Berkarakter, dan Berdaya Saing Global.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak Kami</h4>
+        <p class="text-muted">📍 Durian Hutan, Nagari Aia Gadang - Jl.Simpang Empat - Ujung Gading KM II, Kecamatan Pasaman Kabupaten Pasaman Barat Provinsi Sumatera Barat.</p>
+        <p class="text-muted">📞 +62 813 7437 9317</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="text-muted">&copy; 2026 (AK) SMK IT AL HIDAYAH. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desain Komunikasi Visual - SMK IT AL HIDAYAH</title>
+  <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Base Variables & Container Setup */
+    :root {
+      --primary-color: #0d6efd;
+      --dkv-accent: #7c3aed; /* Creative Violet */
+      --dkv-gradient: linear-gradient(135deg, #2e1065 0%, #7c3aed 100%);
+      --card-bg: #ffffff;
+      --text-color: #212529;
+      --text-muted: #6c757d;
+      --border-radius: 16px;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .dkv-container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    /* Hero Banner Section */
+    .hero-dkv {
+      background: var(--dkv-gradient);
+      color: #ffffff;
+      padding: 3rem 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 10px 30px rgba(124, 58, 237, 0.25);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-dkv h1 {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .hero-dkv p {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      max-width: 820px;
+      margin: 0 auto;
+      line-height: 1.6;
+      opacity: 0.95;
+    }
+
+    /* Section Title Styles */
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-color);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Competence Grid Layout */
+    .grid-competency {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .competency-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--dkv-accent);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .competency-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+    }
+
+    .competency-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+
+    .competency-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+
+    .competency-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Career Path Grid */
+    .grid-career {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .career-item {
+      background: var(--card-bg);
+      padding: 1.25rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .career-item:hover {
+      transform: translateX(4px);
+    }
+
+    .career-icon {
+      font-size: 1.5rem;
+      background: #f5f3ff;
+      color: #7c3aed;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .career-info h4 {
+      font-size: 0.95rem;
+      margin: 0;
+      color: var(--text-color);
+    }
+
+    /* Mobile Responsive Optimizations */
+    @media (max-width: 768px) {
+      .dkv-container {
+        padding: 0 0.75rem;
+        gap: 2rem;
+      }
+
+      .hero-dkv {
+        padding: 2rem 1.25rem;
+      }
+
+      .grid-competency {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-career {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">🏫 SMK IT AL HIDAYAH</div>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Beranda</a></li>
+        <li class="dropdown">
+          <a href="#">Profil ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="profil.html">Visi, Misi & Tujuan</a></li>
+            <li><a href="sambutan.html">Sambutan Kepsek</a></li>
+            <li><a href="fasilitas.html">Fasilitas Sekolah</a></li>
+            <li><a href="struktur-organisasi.html">Struktur Organisasi</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="active">Jurusan ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="jurusan-rpl.html">Pengembangan Perangkat Lunak dan Gim</a></li>
+            <li><a href="jurusan-dkv.html">Desain Komunikasi Visual</a></li>
+          </ul>
+        </li>
+        <li><a href="kontak.html">Kontak</a></li>
+        <li><button id="themeToggle" class="theme-btn">🌙</button></li>
+        <li><a href="spmb.html" class="btn-cta">SPMB Online</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="section-padding">
+    <div class="dkv-container">
+      
+      <!-- 1. Tentang Kompetensi Keahlian (Hero Section) -->
+      <section class="hero-dkv">
+        <h1>🎨 Desain Komunikasi Visual (DKV)</h1>
+        <p>
+          Konsentrasi keahlian Desain Komunikasi Visual di SMK IT Al Hidayah membekali murid dengan kreativitas seni visual, kemampuan bercerita digital, serta penguasaan teknologi media interaktif yang berlandaskan nilai-nilai keislaman dan estetika modern.
+        </p>
+      </section>
+
+      <!-- 2. Kompetensi Inti yang Dipelajari -->
+      <section>
+        <div class="section-title">
+          <span>🎯</span> Kompetensi Inti Pembelajaran
+        </div>
+        <div class="grid-competency">
+          <div class="competency-card">
+            <span class="competency-icon">🖌️</span>
+            <h3>Desain Grafis & Branding</h3>
+            <p>Penguasaan elemen seni visual, pemodelan identitas merek, perancangan logo, tipografi, serta pembuatan media publikasi cetak dan digital.</p>
+          </div>
+          <div class="competency-card">
+            <span class="competency-icon">📷</span>
+            <h3>Fotografi & Videografi</h3>
+            <p>Teknik pencahayaan studio, komposisi kamera profesional, pembuatan naskah, pengambilan gambar, hingga penyuntingan video & <i>color grading</i>.</p>
+          </div>
+          <div class="competency-card">
+            <span class="competency-icon">🎬</span>
+            <h3>Animasi 2D & 3D</h3>
+            <p>Perancangan alur cerita (storyboarding), pembuatan karakter digital, animasi bergerak 2D, serta pemodelan objek 3D untuk iklan dan hiburan.</p>
+          </div>
+          <div class="competency-card">
+            <span class="competency-icon">📐</span>
+            <h3>Desain UI/UX & Layout</h3>
+            <p>Perancangan antarmuka aplikasi/website yang estetik dan mudah digunakan pengguna, serta tata letak cetak majalah, e-book, dan kemasan produk.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Peluang Karir Lulusan -->
+      <section>
+        <div class="section-title">
+          <span>🚀</span> Peluang Karir Lulusan
+        </div>
+        <div class="grid-career">
+          <div class="career-item">
+            <div class="career-icon">🎨</div>
+            <div class="career-info">
+              <h4>Graphic Designer</h4>
+            </div>
+          </div>
+          <div class="career-item">
+            <div class="career-icon">📹</div>
+            <div class="career-info">
+              <h4>Video Editor & Videographer</h4>
+            </div>
+          </div>
+          <div class="career-item">
+            <div class="career-icon">📸</div>
+            <div class="career-info">
+              <h4>Professional Photographer</h4>
+            </div>
+          </div>
+          <div class="career-item">
+            <div class="career-icon">🎥</div>
+            <div class="career-info">
+              <h4>Content Creator / Social Media Specialist</h4>
+            </div>
+          </div>
+          <div class="career-item">
+            <div class="career-icon">✨</div>
+            <div class="career-info">
+              <h4>2D/3D Animator</h4>
+            </div>
+          </div>
+          <div class="career-item">
+            <div class="career-icon">🖥️</div>
+            <div class="career-info">
+              <h4>UI/UX Designer</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>SMK IT AL HIDAYAH</h4>
+        <p class="text-muted">Menciptakan Lulusan Siap Kerja, Berkarakter, dan Berdaya Saing Global.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak Kami</h4>
+        <p class="text-muted">📍 Durian Hutan, Nagari Aia Gadang - Jl.Simpang Empat - Ujung Gading KM II, Kecamatan Pasaman Kabupaten Pasaman Barat Provinsi Sumatera Barat</p>
+        <p class="text-muted">📞 +62 813 7437 9317</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="text-muted">&copy; 2026 (AK) SMK IT AL HIDAYAH. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

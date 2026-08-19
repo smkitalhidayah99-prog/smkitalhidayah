@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Struktur Organisasi - SMK IT AL HIDAYAH</title>
+  <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Reset & CSS Variables Base */
+    :root {
+      --primary-color: #0d6efd;
+      --secondary-color: #0dcaf0;
+      --card-bg: #ffffff;
+      --text-color: #212529;
+      --text-muted: #6c757d;
+      --border-radius: 12px;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Container Utama Responsif */
+    .org-container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* Section Title */
+    .org-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      color: var(--text-color);
+    }
+
+    .level-title {
+      text-align: center;
+      font-size: 1.25rem;
+      color: var(--text-color);
+      margin-bottom: -1rem;
+      position: relative;
+      font-weight: 600;
+    }
+
+    /* Grid Sistem Adaptif */
+    .org-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .org-grid.centered {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .org-grid.centered .card {
+      flex: 1 1 280px;
+      max-width: 450px;
+    }
+
+    /* Desain Kartu (Card) Responsif */
+    .card {
+      background: var(--card-bg);
+      padding: 1.25rem 1rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Membedakan Hirarki berdasarkan Warna Border Samping */
+    .card.level-yayasan {
+      border-left: 6px solid #4f46e5; /* Indigo */
+    }
+
+    .card.level-kepsek {
+      border-left: 6px solid var(--primary-color); /* Biru */
+    }
+
+    .card.level-wakasek {
+      border-left: 6px solid #10b981; /* Hijau */
+    }
+
+    .card.level-unit {
+      border-left: 6px solid #f59e0b; /* Amber/Oranye */
+    }
+
+    .card.level-walikelas {
+      border-left: 6px solid #ec4899; /* Pink/Merah Muda */
+    }
+
+    .card.level-guru {
+      border-left: 6px solid #8b5cf6; /* Ungu */
+    }
+
+    .card.level-siswa {
+      border-left: 6px solid #06b6d4; /* Cyan */
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);
+    }
+
+    /* Tipografi Kartu */
+    .card h3, .card h4 {
+      margin: 0 0 0.4rem 0;
+      font-size: 1.05rem;
+      color: var(--text-color);
+    }
+
+    .card p.text-muted {
+      margin: 0;
+      font-size: 0.925rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Media Query khusus Ponsel Kecil (<= 600px) */
+    @media (max-width: 600px) {
+      .org-container {
+        padding: 0 0.5rem;
+        gap: 1.25rem;
+      }
+
+      .org-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .org-grid.centered .card {
+        max-width: 100%;
+      }
+
+      .card {
+        padding: 1rem;
+      }
+
+      .card h3, .card h4 {
+        font-size: 1rem;
+      }
+
+      .card p.text-muted {
+        font-size: 0.875rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">🏫 SMK IT AL HIDAYAH</div>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Beranda</a></li>
+        <li class="dropdown">
+          <a href="#" class="active">Profil ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="profil.html">Visi, Misi & Tujuan</a></li>
+            <li><a href="sambutan.html">Sambutan Kepsek</a></li>
+            <li><a href="fasilitas.html">Fasilitas Sekolah</a></li>
+            <li><a href="struktur-organisasi.html">Struktur Organisasi</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Jurusan ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="jurusan-rpl.html">Pengembangan Perangkat Lunak dan Gim</a></li>
+            <li><a href="jurusan-dkv.html">Desain Komunikasi Visual</a></li>
+          </ul>
+        </li>
+        <li><a href="kontak.html">Kontak</a></li>
+        <li><button id="themeToggle" class="theme-btn">🌙</button></li>
+        <li><a href="spmb.html" class="btn-cta">SPMB Online</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="section-padding">
+    <h2 class="org-title">Struktur Organisasi SMK IT Al Hidayah</h2>
+    <div class="org-container">
+
+      <!-- Tingkat 1: Yayasan -->
+      <div class="org-grid centered">
+        <div class="card level-yayasan">
+          <h4>Pembina Yayasan</h4>
+          <p class="text-muted">Roni Zapera, St. Lauik Api</p>
+        </div>
+        <div class="card level-yayasan">
+          <h3>Ketua Yayasan</h3>
+          <p class="text-muted">Marwan Hakim, Dt. Magek Putiah</p>
+        </div>
+      </div>
+
+      <!-- Tingkat 2: Kepala Sekolah & Komite -->
+      <div class="org-grid centered">
+        <div class="card level-kepsek">
+          <h3>Kepala Sekolah</h3>
+          <p class="text-muted">Sardin, S.Pd.I.,Gr</p>
+        </div>
+        <div class="card level-kepsek">
+          <h3>Ketua Komite</h3>
+          <p class="text-muted">Taslim, S.E., St. Kabasaran</p>
+        </div>
+      </div>
+
+      <!-- Tingkat 3: Para Wakasek -->
+      <div class="org-grid">
+        <div class="card level-wakasek">
+          <h4>Wakasek Kurikulum</h4>
+          <p class="text-muted">Siti Murni, S.Si.,Gr</p>
+        </div>
+        <div class="card level-wakasek">
+          <h4>Wakasek Kesiswaan</h4>
+          <p class="text-muted">-</p>
+        </div>
+        <div class="card level-wakasek">
+          <h4>Wakasek Humas</h4>
+          <p class="text-muted">-</p>
+        </div>
+      </div>
+
+      <!-- Tingkat 4: Unit Pendukung & Ketua Jurusan -->
+      <div class="org-grid">
+        <div class="card level-unit">
+          <h4>Koordinator BK</h4>
+          <p class="text-muted">-</p>
+        </div>
+        <div class="card level-unit">
+          <h4>Kepala Perpustakaan</h4>
+          <p class="text-muted">-</p>
+        </div>
+        <div class="card level-unit">
+          <h4>Ketua Jurusan DKV</h4>
+          <p class="text-muted">Yelni Novela, S.Kom.,Gr</p>
+        </div>
+        <div class="card level-unit">
+          <h4>Ketua Jurusan PPLG</h4>
+          <p class="text-muted">Nola Sri, S.Pd.,Gr</p>
+        </div>
+      </div>
+
+      <!-- Tingkat 5: Wali Kelas -->
+      <div class="org-grid">
+        <div class="card level-walikelas">
+          <h4>Wali Kelas X DKV</h4>
+          <p class="text-muted">-</p>
+        </div>
+        <div class="card level-walikelas">
+          <h4>Wali Kelas X PPLG</h4>
+          <p class="text-muted">-</p>
+        </div>
+        <div class="card level-walikelas">
+          <h4>Wali Kelas XI DKV</h4>
+          <p class="text-muted">-</p>
+        </div>
+        <div class="card level-walikelas">
+          <h4>Wali Kelas XI PPLG</h4>
+          <p class="text-muted">-</p>
+        </div>
+        <div class="card level-walikelas">
+          <h4>Wali Kelas XII DKV</h4>
+          <p class="text-muted">-</p>
+        </div>
+        <div class="card level-walikelas">
+          <h4>Wali Kelas XII RPL</h4>
+          <p class="text-muted">-</p>
+        </div>
+      </div>
+
+      <!-- Tingkat 6: Guru Mata Pelajaran -->
+
+      <div class="org-grid centered">
+        <div class="card level-guru" style="width: 100%; max-width: 800px;">
+          <h4>Guru Mata Pelajaran</h4>
+          <p class="text-muted">Guru - Guru SMK IT Al Hidayah</p>
+        </div>
+      </div>
+
+      <!-- Tingkat 7: Siswa / Siswi -->
+      <div class="org-grid centered">
+        <div class="card level-siswa" style="width: 100%; max-width: 800px;">
+          <h4>Siswa & Siswi</h4>
+          <p class="text-muted">Seluruh Murid SMK IT Al Hidayah</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>SMK IT AL HIDAYAH</h4>
+        <p class="text-muted">Menciptakan Lulusan Siap Kerja, Berkarakter, dan Berdaya Saing Global.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak Kami</h4>
+        <p class="text-muted">📍 Durian Hutan, Nagari Aia Gadang - Jl.Simpang Empat - Ujung Gading KM II, Kecamatan Pasaman Kabupaten Pasaman Barat Provinsi Sumatera Barat</p>
+        <p class="text-muted">📞 +62 813 7437 9317</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="text-muted">&copy; 2026 (AK) SMK IT AL HIDAYAH. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
