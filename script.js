@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Toggle Dark Mode
   const themeToggleBtn = document.getElementById('themeToggle');
   
   if (themeToggleBtn) {
@@ -15,14 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Cek preferensi tema sebelumnya
     if (localStorage.getItem('theme') === 'dark') {
       document.body.classList.add('dark-mode');
       themeToggleBtn.textContent = '☀️';
     }
   }
 
-  // Toggle Navigasi Mobile Menu
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
 
