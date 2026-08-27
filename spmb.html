@@ -6,11 +6,7 @@
   <title>Pendaftaran SPMB Online - SMK IT AL HIDAYAH</title>
   <link rel="icon" type="image/png" href="assets/img/favicon.ico">
   <style>
-    /* ==========================================
-       1. VARIABLES & THEMES (LIGHT & DARK)
-       ========================================== */
     :root {
-      /* Tema Terang (Default) */
       --bg-color: #f4f6f9;
       --card-bg: #ffffff;
       --text-color: #2c3e50;
@@ -25,7 +21,6 @@
       --radius: 12px;
     }
 
-    /* Dark Mode Class */
     body.dark-mode {
       --bg-color: #12181f;
       --card-bg: #1e293b;
@@ -56,9 +51,6 @@
       min-height: 100vh;
     }
 
-    /* ==========================================
-       2. HEADER & NAVBAR (RESPONSIF)
-       ========================================== */
     header {
       background-color: var(--card-bg);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -133,7 +125,6 @@
       justify-content: center;
     }
 
-    /* Dropdown Navigation */
     .dropdown {
       position: relative;
     }
@@ -167,7 +158,6 @@
       background-color: var(--border-color);
     }
 
-    /* Hamburger Menu Icon */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -182,9 +172,6 @@
       border-radius: 2px;
     }
 
-    /* ==========================================
-       3. MAIN CONTENT & INFORMASI
-       ========================================== */
     .section-padding {
       padding: 40px 20px;
       flex: 1;
@@ -281,9 +268,6 @@
       margin-top: 30px;
     }
 
-    /* ==========================================
-       4. FOOTER
-       ========================================== */
     footer {
       background-color: #0f172a;
       color: #ffffff;
@@ -319,9 +303,6 @@
       padding-top: 20px;
     }
 
-    /* ==========================================
-       5. RESPONSIVE DESIGN (MEDIA QUERIES)
-       ========================================== */
     @media screen and (max-width: 768px) {
       .hamburger {
         display: flex;
@@ -384,7 +365,6 @@
 </head>
 <body>
 
-  <!-- HEADER / NAVBAR -->
   <header>
     <nav class="navbar">
       <div class="logo">🏫 SMK IT AL HIDAYAH</div>
@@ -418,7 +398,6 @@
     </nav>
   </header>
 
-  <!-- INFORMASI SPMB ONLINE -->
   <main class="section-padding">
     <div class="card">
       
@@ -458,7 +437,6 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-container">
       <div class="footer-col">
@@ -476,10 +454,8 @@
     </div>
   </footer>
 
-  <!-- SCRIPT NAVIGASI MOBILE & DARK MODE -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // 1. Script Hamburger Menu (Mobile)
       const hamburger = document.getElementById('hamburger');
       const navLinks = document.getElementById('navLinks');
 
@@ -489,11 +465,9 @@
         });
       }
 
-      // 2. Script Switcher Dark / Light Mode
       const themeToggleBtn = document.getElementById('themeToggle');
       const body = document.body;
 
-      // Cek apakah user pernah menyimpan preferensi tema di browser
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'dark') {
         body.classList.add('dark-mode');
