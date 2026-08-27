@@ -7,7 +7,6 @@
   <link rel="icon" type="image/png" href="assets/img/favicon.ico">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* Reset & CSS Variables Base */
     :root {
       --primary-color: #0d6efd;
       --secondary-color: #0dcaf0;
@@ -18,7 +17,6 @@
       --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
-    /* Container Utama Responsif */
     .org-container {
       width: 100%;
       max-width: 1100px;
@@ -29,7 +27,6 @@
       gap: 2rem;
     }
 
-    /* Section Title */
     .org-title {
       text-align: center;
       margin-bottom: 2rem;
@@ -46,7 +43,6 @@
       font-weight: 600;
     }
 
-    /* Grid Sistem Adaptif */
     .org-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -66,7 +62,6 @@
       max-width: 450px;
     }
 
-    /* Desain Kartu (Card) Responsif */
     .card {
       background: var(--card-bg);
       padding: 1.25rem 1rem;
@@ -87,37 +82,35 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     }
 
-    /* Membedakan Hirarki berdasarkan Warna Border Samping */
     .card.level-yayasan {
-      border-left: 6px solid #4f46e5; /* Indigo */
+      border-left: 6px solid #4f46e5;
     }
 
     .card.level-kepsek {
-      border-left: 6px solid var(--primary-color); /* Biru */
+      border-left: 6px solid var(--primary-color);
     }
 
     .card.level-wakasek {
-      border-left: 6px solid #10b981; /* Hijau */
+      border-left: 6px solid #10b981;
     }
 
     .card.level-unit {
-      border-left: 6px solid #f59e0b; /* Amber/Oranye */
+      border-left: 6px solid #f59e0b;
     }
 
     .card.level-walikelas {
-      border-left: 6px solid #ec4899; /* Pink/Merah Muda */
+      border-left: 6px solid #ec4899;
     }
 
     .card.level-guru {
-      border-left: 6px solid #8b5cf6; /* Ungu */
+      border-left: 6px solid #8b5cf6;
     }
 
     .card.level-siswa {
-      border-left: 6px solid #06b6d4; /* Cyan */
+      border-left: 6px solid #06b6d4;
       background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);
     }
 
-    /* Tipografi Kartu */
     .card h3, .card h4 {
       margin: 0 0 0.4rem 0;
       font-size: 1.05rem;
@@ -131,7 +124,6 @@
       font-weight: 500;
     }
 
-    /* Media Query khusus Ponsel Kecil (<= 600px) */
     @media (max-width: 600px) {
       .org-container {
         padding: 0 0.5rem;
@@ -195,7 +187,6 @@
     <h2 class="org-title">Struktur Organisasi SMK IT Al Hidayah</h2>
     <div class="org-container">
 
-      <!-- Tingkat 1: Yayasan -->
       <div class="org-grid centered">
         <div class="card level-yayasan">
           <h4>Pembina Yayasan</h4>
@@ -207,7 +198,6 @@
         </div>
       </div>
 
-      <!-- Tingkat 2: Kepala Sekolah & Komite -->
       <div class="org-grid centered">
         <div class="card level-kepsek">
           <h3>Kepala Sekolah</h3>
@@ -219,7 +209,6 @@
         </div>
       </div>
 
-      <!-- Tingkat 3: Para Wakasek -->
       <div class="org-grid">
         <div class="card level-wakasek">
           <h4>Wakasek Kurikulum</h4>
@@ -235,7 +224,6 @@
         </div>
       </div>
 
-      <!-- Tingkat 4: Unit Pendukung & Ketua Jurusan -->
       <div class="org-grid">
         <div class="card level-unit">
           <h4>Koordinator BK</h4>
@@ -255,7 +243,6 @@
         </div>
       </div>
 
-      <!-- Tingkat 5: Wali Kelas -->
       <div class="org-grid">
         <div class="card level-walikelas">
           <h4>Wali Kelas X DKV</h4>
@@ -283,8 +270,6 @@
         </div>
       </div>
 
-      <!-- Tingkat 6: Guru Mata Pelajaran -->
-
       <div class="org-grid centered">
         <div class="card level-guru" style="width: 100%; max-width: 800px;">
           <h4>Guru Mata Pelajaran</h4>
@@ -292,7 +277,6 @@
         </div>
       </div>
 
-      <!-- Tingkat 7: Siswa / Siswi -->
       <div class="org-grid centered">
         <div class="card level-siswa" style="width: 100%; max-width: 800px;">
           <h4>Siswa & Siswi</h4>
